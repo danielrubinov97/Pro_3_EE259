@@ -1,7 +1,5 @@
-#include <iostream>
-#include <fstream>
-#include <string.h>
-#include "/ee259/tools/pro_3/sample_p2.h" // implementation of base class
+//When submitting add string.h library
+#include "sample_p2.h" // implementation of base class
 
 using namespace std;
 
@@ -33,15 +31,29 @@ class BURSAR_INFO:public SORT_INFO{
 BURSAR_INFO::BURSAR_INFO(int x, int y)
 	: SORT_INFO(x, y) // call to base class which requires two parameters
 {
-
+	output_file_p3 << "++++++P3 START++++++" << endl; //ERROR MUST BE + PLUSES!
+	output_file_p3 << "++++++P3 OUTPUT FROM BURSAR_INFO CONSTRUCTOR :" << endl;
+	output_file_p3 << "++++++P3 AN OBJECT OF BURSAR_INFO IS CREATED." << endl;
+	output_file_p3 << "++++++P3 END++++++" << endl;
 }// end method
 
 void
 BURSAR_INFO::CHANGE_GRADE(int x, int y, int z)
 {
 	int i;
-	int FOUND, FOUND_POS;
-
+	//int FOUND, FOUND_POS;
+	output_file_p3 << "++++++P3 START++++++" << endl;
+	output_file_p3 << "++++++ P3 OUTPUT FROM CHANGE_GRADE METHOD:" << endl;
+	LIST_GRADE(x);
+	for (i = 0; i < n; i++) { //find the correct ID in the array.
+		if (ids[i] == x && y < p) {
+				grades[i][y] = z;
+				output_file_p3 << "++++++ P3 STUDENT 3333 EXAM " << y << " IS CHANGED AS " << z << "." << endl;
+				LIST_GRADE(x);
+				break;
+		}
+	}
+	output_file_p3 << "++++++P3 END++++++" << endl;
 }// end method
 
 void
