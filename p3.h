@@ -1,4 +1,4 @@
-#include "sample_p2.h" // implementation of base class
+#include "/ee259/tools/pro_3/sample_p2.h" // implementation of base class
 // No need to include any further libraries because they are all in the previous classes.
 using namespace std;
 
@@ -30,19 +30,19 @@ class BURSAR_INFO:public SORT_INFO{
 BURSAR_INFO::BURSAR_INFO(int x, int y)
 	: SORT_INFO(x, y) // call to base class which requires two parameters
 {
-	output_file_p3 << "++++++ P3 START ++++++" << endl; //ERROR MUST BE + PLUSES!
+	output_file_p3 << "++++++ P3 START ++++" << endl; //ERROR MUST BE + PLUSES!
 	output_file_p3 << "++++++ P3 OUTPUT FROM BURSAR_INFO CONSTRUCTOR :" << endl;
 	output_file_p3 << "++++++ P3 AN OBJECT OF BURSAR_INFO IS CREATED." << endl;
-	output_file_p3 << "++++++ P3 END ++++++" << endl;
+	output_file_p3 << "++++++ P3 END ++++" << endl;
 }// end method
 
 void
 BURSAR_INFO::CHANGE_GRADE(int x, int y, int z)
 {
 	int i = 0, FOUND = 0;
-	output_file_p3 << "++++++ P3 START ++++++" << endl; //ERROR MUST BE + PLUSES!
+	output_file_p3 << "++++++ P3 START ++++" << endl; //ERROR MUST BE + PLUSES!
 	output_file_p3 << "++++++ P3 OUTPUT FROM CHANGE_GRADE METHOD:" << endl;
- 	if(y < p && z >= 0 && z <= 100 && x > 0){
+ 	if(y < p && z >= 0 && z <= 100 && x > 0 && y > 0){
 		for (i = 0; i < n; i++) { //find the correct ID in the array.
 			if (ids[i] == x && y < p) {
 				LIST_GRADE(x);
@@ -55,40 +55,42 @@ BURSAR_INFO::CHANGE_GRADE(int x, int y, int z)
 		}
 	}
 	else{
-		output_file_p3 << "++++++ P3 INPUT ERROR. " << endl << "++++++ P3 END ++++++" << endl;
+		output_file_p3 << "++++++ P3 INPUT ERROR. " << endl << "++++++ P3 END ++++" << endl;
 		return;
 	}
 	if(FOUND == 0 && i != 0) output_file_p3 << "++++++ P3 NO SUCH STUDENT WITH ID " << x << endl;  
-	output_file_p3 << "++++++ P3 END ++++++" << endl;
+	output_file_p3 << "++++++ P3 END ++++" << endl;
 }// end method
 
 void
 BURSAR_INFO::VERIFY_GRADE(char * F, char* L, int x, int y) //First, Last, Exam #(starting from 0), Exam Grade.
 {
 	int i;
-	output_file_p3 << "++++++ P3 START ++++++" << endl; //ERROR MUST BE + PLUSES!	
+	output_file_p3 << "++++++ P3 START ++++" << endl; //ERROR MUST BE + PLUSES!	
 	output_file_p3 << "++++++ P3 OUTPUT FROM VERIFY_GRADE METHOD:" << endl;
 	if(x < p && y <= 100 && y >= 0){
 		for (i = 0; i < n; i++){
 			if(strcmp(FirstName[i], F) == 0  && strcmp(LastName[i], L) == 0  && grades[i][x] == y){
 				output_file_p3 << "++++++ P3 STUDENT " << FirstName[i] << " " << LastName[i] << " RECEIVED " << grades[i][x] << " GRADE IN EXAM " << x << "." << endl;
 			break;
-			}else{};
+			}else if (strcmp(FirstName[i], F) == 0 && strcmp(LastName[i], L) == 0 && grades[i][x] != y){
+				output_file_p3 << "++++++ P3 STUDENT " << F << " " <<  L <<  " DID NOT RECEIVE " <<  y << " GRADE IN EXAM " << x << "." << endl;
+				break;
+			}
 		}
 	}else { 
-		output_file_p3 << "++++++ P3 INPUT ERROR. " << endl << "++++++ P3 END ++++++" << endl;
+		output_file_p3 << "++++++ P3 INPUT ERROR. " << endl << "++++++ P3 END ++++" << endl;
 		return;
 	}
 	if(strcmp(FirstName[i], F) != 0 || strcmp(LastName[i], L) != 0) output_file_p3 << "++++++ P3 NO SUCH STUDENT WITH FIRST NAME " << F << " AND LAST NAME " << L << "." << endl;
-	else if(grades[i][x] != y) output_file_p3 << "++++++ P3 INPUT ERROR. " << endl;
-	output_file_p3 << "++++++ P3 END ++++++" << endl;
+	output_file_p3 << "++++++ P3 END ++++" << endl;
 }// end method
 
 void
 BURSAR_INFO::SORT_NAMES()
 {
-	output_file_p3 << "++++++ P3 START ++++++" << endl; //ERROR MUST BE ENDING WITH 6 PLUSES!
+	output_file_p3 << "++++++ P3 START ++++" << endl; //ERROR MUST BE ENDING WITH 6 PLUSES!
 	output_file_p3 << "++++++ P3 OUTPUT FROM SORT_NAMES METHOD: " << endl;
 	SORT_NAME("ASCENDING");
-	output_file_p3 << "++++++ P3 END ++++++" << endl; //ERROR MUST BE ENDING WITH 6 PLUSES!
+	output_file_p3 << "++++++ P3 END ++++" << endl; //ERROR MUST BE ENDING WITH 6 PLUSES!
 }// end method
