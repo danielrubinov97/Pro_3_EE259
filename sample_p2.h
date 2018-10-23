@@ -1,5 +1,7 @@
+#include <iostream>
+#include <fstream>
 #include <string.h>
-#include "sample_p1.h" // implementation of base class
+#include "/ee259/tools/pro_3/sample_p1.h" // implementation of base class
 
 using namespace std;
 

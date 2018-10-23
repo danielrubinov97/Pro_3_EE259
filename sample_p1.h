@@ -1,4 +1,6 @@
-#include "sample_p0.h" // implementation of base class
+#include <iostream>
+#include <fstream>
+#include "/ee259/tools/pro_3/sample_p0.h" // implementation of base class
 
 using namespace std;
 
